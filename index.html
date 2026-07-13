@@ -69,6 +69,8 @@ article.ex{background:var(--card);border:1px solid var(--line);border-radius:14p
 .play:hover{background:var(--pc);color:var(--bg)}
 .vwrap iframe{width:100%;height:100%;border:0;display:block}
 .vlinks{display:flex;gap:10px;align-items:center;margin-bottom:11px}
+.diagram-wrap{margin-bottom:11px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.diagram-wrap img{width:100%;display:block;object-fit:contain;background:#fff}
 a.ytlink{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:99px;color:var(--mut);font-size:12.5px;font-weight:600;text-decoration:none}
 a.ytlink:hover{color:var(--text);border-color:var(--pc)}
 a.ytbtn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:11px;margin-bottom:11px;color:var(--text);font-weight:600;font-size:13.5px;text-decoration:none}
@@ -104,7 +106,7 @@ footer p+p{margin-top:7px}
   <h1>Lean Bulk <em>PPLUL</em><br>Guía visual de ejercicios</h1>
   <p class="sub">Versión sin barra libre: Smith, máquina y mancuerna como implementos principales. Incluye el bloque nuevo de priorización de abs (gym + casa). Vídeos de técnica verificados e incrustados en los levantamientos clave.</p>
 </header>
-<div class="notice"><div><b>Vídeos:</b> al tocar la miniatura se abre el vídeo exacto verificado en YouTube (app o pestaña nueva) — siempre funciona. La reproducción incrustada dentro de la página solo es posible si la guía está alojada en una URL web (p. ej. GitHub Pages): es una restricción reciente de YouTube (Error 153, exige cabecera Referer), no de la guía. Si la alojas, la página lo detecta sola y reproduce aquí mismo.</div></div>
+<div class="notice"><div><b>Diagramas de técnica:</b> Cada ejercicio incluye un diagrama detallado generado profesionalmente que muestra forma correcta, músculos objetivo (resaltados), flechas de movimiento y anotaciones clave en español. Reemplazan las miniaturas de vídeo para una referencia visual rápida e inmediata. <b>Vídeos de referencia:</b> los enlaces "Abrir en YouTube" siguen disponibles para ver demos en movimiento si lo deseas.</div></div>
 
 <nav class="tabs" aria-label="Días de entrenamiento"><div class="tabrow" id="tabrow"></div></nav>
 
@@ -127,22 +129,22 @@ const DAYS = [
  {n:"Press de banca en Smith (o máquina)", en:"Smith Machine Bench Press · Pectoral, deltoide anterior, tríceps", chips:["3 × 5–8","RIR 2","3 min","Sentinel"], vid:"7FyJdsXeta8",
   cues:["Marca la posición exacta del banco bajo la barra y repítela cada sesión — es lo que hace el número comparable.","Escápulas retraídas y deprimidas contra el banco todo el set; pies firmes empujando el suelo.","Barra a la parte baja del pecho, toque controlado, sin rebote; extiende sin perder la retracción."],
   err:"cambiar de Smith o de posición de banco entre sesiones — invalida el ejercicio como marcador de progreso.",
-  note:"Alternativa igual de válida: press de pecho en máquina. Mancuernas también sirven, pero para el trabajo pesado de 5–8 el Smith/máquina progresa mejor (setup repetible, incrementos pequeños)."},
+  note:"Alternativa igual de válida: press de pecho en máquina. Mancuernas también sirven, pero para el trabajo pesado de 5–8 el Smith/máquina progresa mejor (setup repetible, incrementos pequeños).", diagram: "/home/workdir/artifacts/diagrams/push_01_smith_bench.jpg" },
  {n:"Press inclinado con mancuernas", en:"Incline Dumbbell Press · Pectoral superior", chips:["3 × 8–12","RIR 1–2","2–3 min"], vid:"sK4Rvug6ufo",
   cues:["Banco a 30–45°; más de 45° lo convierte en press de hombro.","Baja profundo hasta estiramiento claro del pectoral; codos a ~45–60° del torso.","Sube sin chocar las mancuernas arriba; mantén tensión."],
-  err:"acortar el rango abajo cuando la carga sube — el estiramiento es la mitad del estímulo."},
+  err:"acortar el rango abajo cuando la carga sube — el estiramiento es la mitad del estímulo.", diagram: "/home/workdir/artifacts/diagrams/push_02_incline_db_press.jpg" },
  {n:"Press de hombro en máquina", en:"Machine Shoulder Press · Deltoide anterior y lateral", chips:["2 × 8–12","RIR 2","2 min"], vid:"3R14MnZbcpw",
   cues:["Espalda completamente apoyada; ajusta el asiento para que las empuñaduras queden a la altura de las orejas.","Baja hasta que los codos queden algo por debajo de 90°.","Sube controlado sin bloqueo violento."],
-  err:"convertirlo en test de fuerza — el plan lo prohíbe explícitamente."},
+  err:"convertirlo en test de fuerza — el plan lo prohíbe explícitamente.", diagram: "/home/workdir/artifacts/diagrams/push_03_shoulder_press_machine.jpg" },
  {n:"Elevación lateral en polea (tras el cuerpo)", en:"Behind-the-Back Cable Lateral Raise · Deltoide lateral", chips:["4 × 12–20","RIR 0–2","60–90 s","Prioridad"], vid:"pFACLhcjeps",
   cues:["Polea baja, cable pasando por detrás del cuerpo: máxima tensión en la posición estirada.","Sube liderando con el codo, no con la mano; hasta la horizontal.","Ligera inclinación del torso hacia la máquina; cero balanceo."],
-  err:"encoger el trapecio para mover más peso — si el cuello trabaja, baja la carga."},
+  err:"encoger el trapecio para mover más peso — si el cuello trabaja, baja la carga.", diagram: "/home/workdir/artifacts/diagrams/push_04_cable_lateral_behind.jpg" },
  {n:"Contractora (pec deck) o cruce en polea", en:"Pec Deck / Cable Fly · Pectoral, énfasis en estiramiento", chips:["2 × 12–20","RIR 1–2","90 s"], vid:"H4mVGHaK2f4",
   cues:["Codos ligeramente flexionados y fijos durante todo el arco.","Abre hasta estiramiento profundo sin molestia de hombro.","Pausa de 1 s en el cierre apretando el pectoral."],
-  err:"acortar el rango para colgar más placas."},
+  err:"acortar el rango para colgar más placas.", diagram: "/home/workdir/artifacts/diagrams/push_05_pec_deck_fly.jpg" },
  {n:"Extensión de tríceps sobre la cabeza en polea", en:"Overhead Cable Triceps Extension · Cabeza larga del tríceps", chips:["3 × 10–15","RIR 1–2","90 s"], vid:"GzmlxvSFE7A",
   cues:["De espaldas a la polea, brazos junto a las orejas.","Solo se mueve el antebrazo; estiramiento completo detrás de la cabeza.","La posición estirada es el punto del ejercicio (Maeo 2023): no la recortes."],
-  err:"dejar caer los codos hacia fuera — lo convierte en un press y saca al tríceps de longitud larga."}
+  err:"dejar caer los codos hacia fuera — lo convierte en un press y saca al tríceps de longitud larga.", diagram: "/home/workdir/artifacts/diagrams/push_06_overhead_tricep.jpg" }
  ]},
 
 {id:"pull", tab:"PULL", plate:"20", label:"Pull A", color:"var(--blue)",
@@ -152,22 +154,22 @@ const DAYS = [
  {n:"Dominada lastrada (agarre supino)", en:"Weighted Chin-Up · Dorsal, bíceps", chips:["3 × 5–8","RIR 2","3 min","Sentinel"], vid:"e1YSApl-QcM",
   cues:["Desde cuelgue completo con escápulas activas, no colgado pasivo.","Lleva los codos hacia las caderas; barbilla sobre la barra sin patalear.","Baja controlado hasta casi extensión completa."],
   err:"medio rango arriba y sin estirar abajo — reps que no cuentan.",
-  note:"Si el lastre irrita los codos, la sustitución del plan es jalón neutro pesado con la misma progresión."},
+  note:"Si el lastre irrita los codos, la sustitución del plan es jalón neutro pesado con la misma progresión.", diagram: "/home/workdir/artifacts/diagrams/pull_01_weighted_chinup.jpg" },
  {n:"Remo con apoyo de pecho (mancuernas o máquina)", en:"Chest-Supported Row · Dorsal y espalda media", chips:["3 × 8–12","RIR 1–2","2–3 min"], vid:"LuWGKt8B_7o",
   cues:["Banco a ~45°, pecho pegado al banco durante todo el set.","Tira del codo hacia la cadera; permite protracción controlada abajo.","Pausa breve en la contracción."],
-  err:"despegar el pecho del banco para hacer cheating — elimina la ventaja del ejercicio (cero coste lumbar)."},
+  err:"despegar el pecho del banco para hacer cheating — elimina la ventaja del ejercicio (cero coste lumbar).", diagram: "/home/workdir/artifacts/diagrams/pull_02_chest_supported_row.jpg" },
  {n:"Jalón agarre neutro o unilateral", en:"Neutral-Grip Pulldown · Dorsal", chips:["2 × 10–15","RIR 1–2","2 min"], vid:"KgZqDuNx7rI",
   cues:["Deja que el dorsal se estire por completo arriba en cada rep.","Torso ligeramente inclinado atrás y fijo; tira hacia el esternón.","En unilateral, busca el arco natural del dorsal."],
-  err:"balancear el torso para mover la carga."},
+  err:"balancear el torso para mover la carga.", diagram: "/home/workdir/artifacts/diagrams/pull_03_neutral_pulldown.jpg" },
  {n:"Pájaro en máquina", en:"Reverse Pec Deck · Deltoide posterior", chips:["3 × 12–20","RIR 0–2","60–90 s"], vid:"LzsSQzHFuLU",
   cues:["Agarre neutro o prono; abre en arco horizontal.","Movimiento del hombro, no retracción escapular exagerada.","Carga que permita control total — el posterior no necesita heroísmo."],
-  err:"tanto peso que el trapecio hace el trabajo."},
+  err:"tanto peso que el trapecio hace el trabajo.", diagram: "/home/workdir/artifacts/diagrams/pull_04_reverse_pec_deck.jpg" },
  {n:"Curl inclinado con mancuernas", en:"Incline Dumbbell Curl · Bíceps (cabeza larga, posición estirada)", chips:["3 × 8–12","RIR 1–2","90 s"], vid:"DCe8f6vMe9A",
   cues:["Banco a 45–60°, brazos colgando verticales por detrás del torso.","Codos fijos; extensión completa abajo en cada rep.","Sube sin adelantar los hombros."],
-  err:"adelantar los codos al subir — pierdes el estiramiento, que es el punto del ejercicio."},
+  err:"adelantar los codos al subir — pierdes el estiramiento, que es el punto del ejercicio.", diagram: "/home/workdir/artifacts/diagrams/pull_05_incline_db_curl.jpg" },
  {n:"Curl martillo", en:"Hammer Curl · Braquial, braquiorradial", chips:["2 × 10–15","RIR 1–2","90 s"], vid:"BRVDS6HVR9Q",
   cues:["Agarre neutro, codos pegados al torso.","Sube sin balanceo; baja en 2 s."],
-  err:"convertirlo en un swing con impulso de cadera."}
+  err:"convertirlo en un swing con impulso de cadera.", diagram: "/home/workdir/artifacts/diagrams/pull_06_hammer_curl.jpg" }
  ]},
 
 {id:"legs", tab:"LEGS", plate:"15", label:"Legs A", color:"var(--yel)",
@@ -177,23 +179,23 @@ const DAYS = [
  {n:"Sentadilla en Smith (barra alta)", en:"Smith Machine Squat · Cuádriceps, glúteo", chips:["3 × 5–8","RIR 2","3–4 min","Sentinel"], vid:"yoP29LtTdnQ",
   cues:["Pies medio pie por delante de la vertical de la barra: permite torso vertical y rodilla libre sin que la barra te empuje.","Profundidad idéntica sesión a sesión — sin eso no hay sentinel.","Bracing abdominal antes de cada rep, igual que con barra libre.","Misma máquina Smith siempre; anótala en el logbook."],
   err:"copiar la posición de pies de la sentadilla libre — en Smith te manda el torso hacia delante y castiga la lumbar.",
-  note:"Alternativa si tu gym tiene péndulo o hack libre en ese momento: sirven, pero no dupliques hack aquí y en Lower B sin motivo — varía el perfil de resistencia."},
+  note:"Alternativa si tu gym tiene péndulo o hack libre en ese momento: sirven, pero no dupliques hack aquí y en Lower B sin motivo — varía el perfil de resistencia.", diagram: "/home/workdir/artifacts/diagrams/legs_01_smith_squat.jpg" },
  {n:"Peso muerto rumano en Smith (o mancuernas)", en:"Smith / Dumbbell RDL · Isquios y glúteo en estiramiento", chips:["3 × 6–10","RIR 2","3 min","Único hinge pesado"], vid:"IJdUtnxAmNo",
   cues:["Cadera atrás, rodillas semiflexionadas y fijas; espalda neutra siempre.","Baja hasta estiramiento fuerte de isquios (media espinilla aprox.), ni un cm más.","Con mancuernas: pegadas a las piernas; cuando el agarre limite antes que los isquios, usa straps o pásate al Smith."],
   err:"convertirlo en peso muerto convencional flexionando rodillas en la bajada.",
-  note:"Si un día tienes barra pero no rack: RDL desde el suelo (primera rep como peso muerto convencional, el resto rumano puro). No necesita rack en absoluto."},
+  note:"Si un día tienes barra pero no rack: RDL desde el suelo (primera rep como peso muerto convencional, el resto rumano puro). No necesita rack en absoluto.", diagram: "/home/workdir/artifacts/diagrams/legs_02_rdl_smith.jpg" },
  {n:"Prensa", en:"Leg Press · Cuádriceps sin carga espinal", chips:["2 × 10–15","RIR 1–2","2–3 min"], vid:"K5n2vg3oZa4",
   cues:["Pies a media altura de la plataforma, anchura de cadera.","Baja profundo sin que la lumbar se despegue del respaldo.","No bloquees rodillas con violencia arriba."],
-  err:"rango corto con carga de ego."},
+  err:"rango corto con carga de ego.", diagram: "/home/workdir/artifacts/diagrams/legs_03_leg_press.jpg" },
  {n:"Curl femoral sentado", en:"Seated Leg Curl · Isquios en longitud larga", chips:["3 × 10–15","RIR 1–2","90 s"], vid:"ELOCsoDSmrg",
   cues:["Cadera bien atrás en el asiento, almohadilla ajustada.","Flexión completa; vuelve controlado hasta casi extensión total.","Sentado > tumbado como principal por la longitud muscular — por eso va aquí."],
-  err:"levantar la cadera del asiento en las últimas reps."},
+  err:"levantar la cadera del asiento en las últimas reps.", diagram: "/home/workdir/artifacts/diagrams/legs_04_seated_leg_curl.jpg" },
  {n:"Elevación de talones de pie", en:"Standing Calf Raise · Gastrocnemio", chips:["3–4 × 8–12","RIR 1","90 s"], vid:"KVZ3qtJA4AU",
   cues:["Pausa de 1–2 s abajo en estiramiento profundo.","Contracción máxima arriba con pausa breve.","Cero rebote."],
-  err:"rebotar en el tendón de Aquiles — trabajo elástico, no muscular."},
+  err:"rebotar en el tendón de Aquiles — trabajo elástico, no muscular.", diagram: "/home/workdir/artifacts/diagrams/legs_05_standing_calf.jpg" },
  {n:"Crunch en polea alta", en:"Cable Crunch · Recto abdominal, cargable y progresivo", chips:["3 × 10–15","RIR 1–2","60–90 s","Bloque abs"], vid:"AV5PmZJIrrw",
   cues:["De rodillas, cadera fija: el movimiento es flexionar la columna, costillas hacia la pelvis.","Cuerda junto a las sienes; los brazos no tiran.","Extiende hasta espalda neutra en cada rep — rango completo, tempo controlado."],
-  err:"hacer bisagra de cadera con la columna rígida — parece un crunch, no entrena el recto."}
+  err:"hacer bisagra de cadera con la columna rígida — parece un crunch, no entrena el recto.", diagram: "/home/workdir/artifacts/diagrams/legs_06_cable_crunch.jpg" }
  ]},
 
 {id:"upper", tab:"UPPER", plate:"10", label:"Upper B", color:"var(--grn)",
@@ -202,28 +204,28 @@ const DAYS = [
  ex:[
  {n:"Press inclinado en Smith (inclinación baja) o máquina", en:"Low-Incline Smith Press · Pectoral superior", chips:["3 × 6–10","RIR 1–2","2–3 min","Marcador secundario"], vid:"p3wNYF2qFUQ",
   cues:["Inclinación ~30°; mismo setup escapular que el press plano.","Barra a la parte alta del pecho.","Marca posición de banco y repítela."],
-  err:"inclinar demasiado el banco — deltoide anterior se come el ejercicio."},
+  err:"inclinar demasiado el banco — deltoide anterior se come el ejercicio.", diagram: "/home/workdir/artifacts/diagrams/upper_01_low_incline_smith.jpg" },
  {n:"Remo en polea sentado", en:"Seated Cable Row · Espalda media/alta", chips:["3 × 8–12","RIR 1–2","2 min"], vid:"7BkgqzC6WsM",
   cues:["Torso fijo a ~90°; protracción escapular controlada al frente.","Tira hacia el abdomen alto.","La lumbar no participa."],
-  err:"remo-columpio con balanceo de torso."},
+  err:"remo-columpio con balanceo de torso.", diagram: "/home/workdir/artifacts/diagrams/upper_02_seated_cable_row.jpg" },
  {n:"Jalón agarre ancho o pullover en polea", en:"Wide-Grip Pulldown / Cable Pullover · Dorsal (amplitud)", chips:["3 × 10–15","RIR 1–2","2 min"], vid:"02Qci1-0Aao",
   cues:["Agarre algo más ancho que hombros; tira al pecho alto.","En pullover: brazos casi extendidos, arco desde encima de la cabeza a los muslos.","Estiramiento completo arriba en cada rep."],
-  err:"acortar el rango arriba, donde el dorsal más trabaja."},
+  err:"acortar el rango arriba, donde el dorsal más trabaja.", diagram: "/home/workdir/artifacts/diagrams/upper_03_wide_pulldown_pullover.jpg" },
  {n:"Fondos lastrados o press de pecho en máquina", en:"Weighted Dip / Machine Chest Press · Pectoral inferior, tríceps", chips:["2 × 8–12","RIR 1–2","2–3 min"], vid:"yN6Q1UI_xkE",
   cues:["Torso ligeramente al frente para sesgo pectoral.","Baja hasta estiramiento sin dolor de hombro ni esternón.","Regla del plan: si molesta, press en máquina sin dudar."],
-  err:"profundidad heroica con hombro quejándose."},
+  err:"profundidad heroica con hombro quejándose.", diagram: "/home/workdir/artifacts/diagrams/upper_04_dips_machine_press.jpg" },
  {n:"Elevación lateral con mancuernas", en:"Dumbbell Lateral Raise · Deltoide lateral", chips:["3 × 12–20","RIR 0–2","60–90 s"], vid:"4hTUCDUQaNA",
   cues:["Sube liderando con el codo hasta la horizontal.","Muñeca neutra o meñique ligeramente arriba.","Baja en 2 s; la excéntrica cuenta."],
-  err:"encogimiento y balanceo cuando llega la fatiga — baja la carga, no la técnica."},
+  err:"encogimiento y balanceo cuando llega la fatiga — baja la carga, no la técnica.", diagram: "/home/workdir/artifacts/diagrams/upper_05_db_lateral_raise.jpg" },
  {n:"Aperturas posteriores en polea o pájaro en máquina", en:"Cable Rear Delt Fly · Deltoide posterior", chips:["2 × 15–20","RIR 0–2","60–90 s"], vid:"ywMSCem375A",
   cues:["Cruza los cables (mano derecha a polea izquierda).","Arco horizontal amplio, hombro protagonista.","Ligerísimo — este músculo responde a reps limpias."],
-  err:"trapecio dominando el movimiento."},
+  err:"trapecio dominando el movimiento.", diagram: "/home/workdir/artifacts/diagrams/upper_06_rear_delt_fly.jpg" },
  {n:"Curl con barra EZ (o mancuernas)", en:"EZ-Bar Curl · Bíceps, volumen general", chips:["2 × 8–12","RIR 1–2","90 s"], vid:"5NsFLGUf0Fo",
   cues:["Codos fijos junto al torso.","Extensión completa abajo; sin ayuda de cadera.","El agarre EZ protege las muñecas — úsalo si el recto molesta."],
-  err:"medio rango arriba con carga excesiva."},
+  err:"medio rango arriba con carga excesiva.", diagram: "/home/workdir/artifacts/diagrams/upper_07_ez_bar_curl.jpg" },
  {n:"Extensión de tríceps en polea", en:"Cable Pressdown · Tríceps (cabezas lateral/medial)", chips:["2 × 10–15","RIR 1–2","90 s"], vid:"_w-HpW70nSQ",
   cues:["Codos fijos junto al torso.","Bloqueo completo abajo con apretón de 1 s.","Sube controlado hasta ~90° o algo más."],
-  err:"empujar con los hombros inclinándose sobre la polea."}
+  err:"empujar con los hombros inclinándose sobre la polea.", diagram: "/home/workdir/artifacts/diagrams/upper_08_tricep_pressdown.jpg" }
  ]},
 
 {id:"lower", tab:"LOWER", plate:"5", label:"Lower B", color:"var(--wht)",
@@ -232,28 +234,28 @@ const DAYS = [
  ex:[
  {n:"Sentadilla hack", en:"Hack Squat · Cuádriceps — lift principal del día", chips:["3 × 8–12","RIR 1–2","2–3 min","Backup sentinel"], vid:"-lAnEGH2blE",
   cues:["Pies bajos y relativamente estrechos para sesgo de cuádriceps.","Máxima profundidad tolerable con talones apoyados.","Espalda y cadera pegadas al respaldo todo el set."],
-  err:"pies altos y anchos «para sentirlo menos en la rodilla» — cambia el ejercicio a glúteo/isquio sin que lo hayas decidido."},
+  err:"pies altos y anchos «para sentirlo menos en la rodilla» — cambia el ejercicio a glúteo/isquio sin que lo hayas decidido.", diagram: "/home/workdir/artifacts/diagrams/lower_01_hack_squat.jpg" },
  {n:"Hip thrust en máquina o Smith", en:"Machine / Smith Hip Thrust · Glúteo", chips:["3 × 8–12","RIR 1–2","2 min"], vid:"pF17m_CXfL0",
   cues:["Banco al borde inferior de la escápula; barbilla recogida, mirada al frente.","Extensión completa de cadera con retroversión pélvica arriba (costillas abajo); pausa 1 s.","En Smith, la trayectoria fija de hecho facilita el setup."],
-  err:"hiperextender la lumbar en lugar de extender la cadera — el rango extra es columna, no glúteo."},
+  err:"hiperextender la lumbar en lugar de extender la cadera — el rango extra es columna, no glúteo.", diagram: "/home/workdir/artifacts/diagrams/lower_02_hip_thrust.jpg" },
  {n:"Sentadilla búlgara con mancuernas", en:"Dumbbell Bulgarian Split Squat · Cuádriceps y glúteo unilateral", chips:["2 × 10–12 /pierna","RIR 1–2","2 min"], vid:"hiLF_pF3EJM",
   cues:["Empeine trasero apoyado en banco; baja hasta estiramiento profundo.","Torso vertical = sesgo cuádriceps; inclinado al frente = sesgo glúteo. Elige y sé consistente.","Regla del plan: la carga nunca debe hacer del equilibrio el limitante."],
-  err:"mancuernas tan pesadas que la serie es un ejercicio de circo, no de piernas."},
+  err:"mancuernas tan pesadas que la serie es un ejercicio de circo, no de piernas.", diagram: "/home/workdir/artifacts/diagrams/lower_03_bulgarian_split.jpg" },
  {n:"Curl femoral tumbado", en:"Lying Leg Curl · Isquios (complementa el sentado)", chips:["3 × 10–15","RIR 1–2","90 s"], vid:"vl5nUdE9mWM",
   cues:["Cadera pegada al banco — si se levanta, la carga sobra.","Contracción completa arriba; excéntrica de 2–3 s."],
-  err:"latigazo de cadera para arrancar la rep."},
+  err:"latigazo de cadera para arrancar la rep.", diagram: "/home/workdir/artifacts/diagrams/lower_04_lying_leg_curl.jpg" },
  {n:"Extensión de cuádriceps", en:"Leg Extension · Cuádriceps (incl. recto femoral), fatiga sistémica mínima", chips:["2 × 12–20","RIR 0–2","90 s"], vid:"tTbJBUKnWU8",
   cues:["Espalda atrás en el asiento; extensión completa con pausa breve.","Baja controlado sin soltar la carga.","Buen sitio para acercarse al fallo."],
-  err:"patada balística sin control excéntrico."},
+  err:"patada balística sin control excéntrico.", diagram: "/home/workdir/artifacts/diagrams/lower_05_leg_extension.jpg" },
  {n:"Elevación de talones sentado", en:"Seated Calf Raise · Sóleo", chips:["3–4 × 10–15","RIR 1","90 s"], vid:"pz66Bw6HJ4s",
   cues:["Misma disciplina que de pie: pausa abajo, contracción completa arriba.","La rodilla flexionada apaga el gastrocnemio — por eso complementa al de pie."],
-  err:"rebotes cortos y rápidos."},
+  err:"rebotes cortos y rápidos.", diagram: "/home/workdir/artifacts/diagrams/lower_06_seated_calf.jpg" },
  {n:"Elevación de piernas colgado", en:"Hanging Leg Raise · Abdomen inferior y control pélvico", chips:["3 × 10–15","RIR 1–2","60–90 s","Bloque abs"], vid:"Pr1ieGZ5atk",
   cues:["Inicia con retroversión pélvica: enrolla la pelvis hacia las costillas, no solo levantes piernas.","Cero balanceo; baja controlado.","Cuando 15 reps limpias sean fáciles: piernas más rectas, tobillos lastrados o tempo."],
-  err:"columpiarse con impulso de flexores de cadera — muchas reps, cero recto abdominal."},
+  err:"columpiarse con impulso de flexores de cadera — muchas reps, cero recto abdominal.", diagram: "/home/workdir/artifacts/diagrams/lower_07_hanging_leg_raise.jpg" },
  {n:"Extensión lumbar 45° (opcional)", en:"45° Back Extension · Erectores, seguro estructural", chips:["2 × 10–15","RIR 3–4","90 s","Opcional"], vid:"sRP1Q1L8pj4",
   cues:["Lejos del fallo siempre: es seguro estructural, no hipertrofia prioritaria.","Movimiento controlado, sin hiperextensión arriba.","Añadido porque al quitar sentadilla y RDL libres, la carga directa de erectores casi desaparece."],
-  err:"convertirla en un ejercicio de ego lastrado — no es el objetivo."}
+  err:"convertirla en un ejercicio de ego lastrado — no es el objetivo.", diagram: "/home/workdir/artifacts/diagrams/lower_08_back_extension.jpg" }
  ]},
 
 {id:"abs", tab:"ABS", plate:"◎", label:"Abs +", color:"var(--sil)",
@@ -269,16 +271,16 @@ const DAYS = [
  ex:[
  {n:"Rueda abdominal (rollout)", en:"Ab Wheel Rollout · Recto abdominal completo — la mejor compra casera (~10–15 €)", chips:["3 × 6–12","RIR 1–2","Casa","Lunes"], vid:"j6lR4u193gE",
   cues:["Desde rodillas, ligero redondeo lumbar (retroversión) antes de salir — nunca arquees.","Rueda hasta donde puedas mantener la espalda sin ceder; ese es tu rango de hoy.","Vuelve tirando con los abs, sin hacer pico con la cadera.","Progresión: de rodillas → más lejos → contra pared → de pie."],
-  err:"dejar que la lumbar se hunda en la parte lejana — es la lesión típica del ejercicio y la señal de que fuiste demasiado lejos."},
+  err:"dejar que la lumbar se hunda en la parte lejana — es la lesión típica del ejercicio y la señal de que fuiste demasiado lejos.", diagram: "/home/workdir/artifacts/diagrams/abs_01_ab_wheel.jpg" },
  {n:"Reverse crunch", en:"Reverse Crunch · Recto abdominal (énfasis inferior)", chips:["2 × 12–20","RIR 1–2","Casa","Lunes"], vid:"XY8KzdDcMFg",
   cues:["Tumbado, rodillas a 90°: enrolla la pelvis hacia las costillas — la pelvis se mueve, no solo las piernas.","Baja vértebra a vértebra, controlado.","Cuando sea fácil: piernas más extendidas o mancuerna ligera sujeta entre los pies."],
-  err:"balancear las piernas con impulso — el recto ni se entera."},
+  err:"balancear las piernas con impulso — el recto ni se entera.", diagram: "/home/workdir/artifacts/diagrams/abs_02_reverse_crunch.jpg" },
  {n:"Crunch lastrado con mochila o disco", en:"Weighted Crunch · Recto abdominal (énfasis superior)", chips:["3 × 10–15","Tempo 3-1-3","Casa","Jueves"], vid:"1YSxi0qv3wg",
   cues:["Disco o mochila abrazada al pecho; flexiona la columna llevando costillas a pelvis.","Tempo lento: 3 s subida, 1 s apretón, 3 s bajada.","Rango corto por diseño — el recto flexiona la columna, no la cadera."],
-  err:"tirar del cuello con las manos o convertirlo en sit-up de cadera."},
+  err:"tirar del cuello con las manos o convertirlo en sit-up de cadera.", diagram: "/home/workdir/artifacts/diagrams/abs_03_weighted_crunch.jpg" },
  {n:"Hollow body hold", en:"Hollow Hold · Accesorio isométrico, transferencia al leg raise", chips:["2 × 20–40 s","RIR 2","Casa","Jueves"], vid:"HAfUt2Cco74",
   cues:["Lumbar pegada al suelo siempre — es la regla que define el ejercicio.","Brazos y piernas tan extendidos como permita mantener la lumbar abajo.","Acorta la palanca (rodillas flexionadas) si la lumbar se despega."],
-  err:"aguantar segundos con la lumbar arqueada — cronómetro alto, estímulo nulo."}
+  err:"aguantar segundos con la lumbar arqueada — cronómetro alto, estímulo nulo.", diagram: "/home/workdir/artifacts/diagrams/abs_04_hollow_hold.jpg" }
  ]}
 ];
 
@@ -307,7 +309,12 @@ DAYS.forEach((d,i)=>{
   d.ex.forEach((e,j)=>{
     h+=`<article class="ex"><div class="exhead"><span class="num">${j+1}</span><div><h3>${e.n}</h3><p class="en">${e.en}</p></div></div>`;
     h+=`<div class="chips">${e.chips.map((c,k)=>`<span class="${k===0?'hot':''}${(c==='Casa')?' home':''}">${c}</span>`).join('')}</div>`;
-    if(e.vid){
+    if(e.diagram){
+      h+=`<div class="diagram-wrap" style="margin-bottom:11px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);"><img loading="lazy" src="${e.diagram}" alt="Diagrama de técnica detallado para ${e.n}" style="width:100%;display:block;"></div>`;
+      if(e.vid){
+        h+=`<div class="vlinks"><a class="ytlink" href="https://www.youtube.com/watch?v=${e.vid}" target="_blank" rel="noopener">▶ Ver vídeo de referencia en YouTube ↗</a></div>`;
+      }
+    } else if(e.vid){
       h+=`<div class="vwrap" data-id="${e.vid}"><img loading="lazy" alt="Miniatura del vídeo de técnica" src="https://i.ytimg.com/vi/${e.vid}/hqdefault.jpg" onerror="this.closest('.vwrap').classList.add('noimg')"><button class="play" aria-label="Reproducir vídeo de técnica">▶</button></div>`;
       h+=`<div class="vlinks"><a class="ytlink" href="https://www.youtube.com/watch?v=${e.vid}" target="_blank" rel="noopener">Abrir en YouTube ↗</a></div>`;
     } else if(e.search){
