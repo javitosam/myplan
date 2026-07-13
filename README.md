@@ -8,4 +8,8 @@ Guía de ejercicios del programa de hipertrofia (lean bulk, split PPLUL 5+2) en 
 
 ## Publicación
 
-GitHub Pages: Settings → Pages → Deploy from a branch → `main` / root.
+Automática con GitHub Actions: cada push a `main` despliega el sitio en GitHub
+Pages (workflow en `.github/workflows/pages.yml`). El propio workflow habilita
+Pages la primera vez, así que no hay que configurar nada a mano. La URL del sitio
+aparece en la pestaña **Actions** (job _Deploy to GitHub Pages_) y en
+**Settings → Pages** una vez completado el primer despliegue.
